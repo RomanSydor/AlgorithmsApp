@@ -6,7 +6,10 @@ namespace AlgorithmsApp
     {
         static void Main(string[] args)
         {
+            Console.WriteLine();
             Console.ReadLine();
         }
+
+       
     }
 }

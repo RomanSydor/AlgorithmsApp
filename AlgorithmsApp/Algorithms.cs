@@ -345,6 +345,7 @@ namespace AlgorithmsApp
             return result.Remove(result.Length - 3);
         }
 
+        //10.03.21
         public static string IntToRoman(int n)
         {
             return
@@ -373,6 +374,23 @@ namespace AlgorithmsApp
                 {
                     result[i, j] = (i + 1) * (j + 1);
                 }
+            }
+            return result;
+        }
+
+        //11.03.21
+        public static string ToCamelCase(string str)
+        {
+            var result = String.Empty;
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i].Equals('_') || str[i].Equals('-'))
+                {
+                    result += str.Substring(i + 1, 1).ToUpper();
+                    i++;
+                    continue;
+                }
+                result += str.Substring(i, 1);
             }
             return result;
         }
