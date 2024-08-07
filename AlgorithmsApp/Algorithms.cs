@@ -394,5 +394,52 @@ namespace AlgorithmsApp
             }
             return result;
         }
+
+        //06.08.24
+        public static string[] SplitToPairs(string test)
+        {
+            if (test.Length % 2 == 1)
+            {
+                test += "_";
+            }
+
+            var result = new List<string>();
+
+            for (var i = 0; i < test.Length; i += 2)
+            {
+                result.Add($"{test[i]}{test[i + 1]}");
+            }
+
+            return result.ToArray();
+        }
+
+        //07.08.24
+        //var ladder = new string[]{
+        //    "001001",
+        //    "010000",
+        //    "100100",
+        //    "001000",
+        //    "100101",
+        //    "010010",
+        //    "101001",
+        //    "010100"
+        //};
+        public static int[] Amidakuji(string[] ladder)
+        {
+            var range = Enumerable.Range(0, ladder[0].Length + 1).ToList();
+
+            foreach (var row in ladder)
+            {
+                for (var number = 0; number < row.Length; number++)
+                {
+                    if (row[number] == '1')
+                    {
+                        range.Reverse(number, 2);
+                    }
+                }
+            }
+
+            return range.ToArray();
+        }
     }
 }
